@@ -1,0 +1,39 @@
+n = 1000
+
+A = rand(n);
+A = A'*A;
+soluz = ones(n,1);
+b = A*soluz;
+
+%MATLAB
+tic;
+[Qvero, Rvero] = qr(A);
+matlab_time = toc
+
+c = Q'*b;
+x = R\c;
+
+
+%HOUSEHOLDER
+tic;
+[Qhouse, Rhouse] = QRHouseholderQuadrate(A);
+qrhouseholdertime = toc
+
+%GIVENSDIRETTO
+%tic;
+%[Qgivens, Rgivens] = QRGivensQuadrateEsplicito(A);
+%qrgivensdirettotime = toc
+
+%GIVENSIMPLICITO
+
+tic;
+[Rgivensimpl, C, S] = QRGivensQuadrate(A);
+qrgivensimplicito = toc
+
+%CHOLESKY
+tic;
+[Rchol] = CholeskyColonne(A);
+choltime = toc
+
+
+

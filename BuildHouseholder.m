@@ -1,6 +1,6 @@
 function H = BuildHouseholder(x)
     
-    [n, m] = size(x);
+    [n, ~] = size(x);
 
     sigma = norm(x,2);
     k = -(sign(x(1)))*sigma;
