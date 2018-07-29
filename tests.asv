@@ -43,12 +43,12 @@ qrgivensimplicito = toc
 
 c = b;
 for i = 1:n
+    csupp = c
     for j = i+1:n
         sin = S(i,j);
         cos = C(i,j);
-        csupp = c;
-        xi = csupp(i);
-        xj = csupp(j);
+        xi = c(i);
+        xj = c(j);
         
         c(i) = cos*xi+sin*xj;
         c(j) = -sin*xi+cos*xj;
